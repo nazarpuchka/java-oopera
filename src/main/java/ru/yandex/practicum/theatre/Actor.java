@@ -1,3 +1,5 @@
+package main.java.ru.yandex.practicum.theatre;
+
 public class Actor extends Person {
 
     private int height;
@@ -6,14 +8,16 @@ public class Actor extends Person {
         super(name, surname, gender);
         this.height = height;
     }
+
     @Override
     public String toString() {
-        return "Actor{" +
+        return "main.java.ru.yandex.practicum.theatre.Actor{" +
                 "name='" + getName() + '\'' +
                 ", surname='" + getSurname() + '\'' +
                 ", height=" + height +
                 '}';
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -33,13 +37,4 @@ public class Actor extends Person {
         result = 31 * result + height;
         return result;
     }
-    public void addActor(Actor actor) {
-        if (!Show.listOfActors.contains(actor)) {
-            Show.listOfActors.add(actor);
-            System.out.println("Актёр успешно добавлен.");
-        } else {
-            System.out.println("Этот актёр уже есть в списке.");
-        }
-    }
-
 }

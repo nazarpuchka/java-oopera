@@ -1,12 +1,12 @@
+package main.java.ru.yandex.practicum.theatre; // Здравствуйте! Все поправил, спасибо!
+
 import java.util.ArrayList;
 
 public class Theatre {
 
-
     public static void main(String[] args) {
 
         System.out.println("Поехали!");
-
 
         Actor actor1 = new Actor("Фрэнк", "Дреблин", Gender.MALE, 90);
         Actor actor2 = new Actor("Эмилия", "Кларксон", Gender.FEMALE, 55);
@@ -15,9 +15,9 @@ public class Theatre {
         Director director1 = new Director("Роберт", "Земекисян", Gender.MALE, 30);
         Director director2 = new Director("Квентин", "Тарантинов", Gender.MALE, 55);
 
-        MusicAuthor musicAuthor = new MusicAuthor("Ханц", "Циммер", Gender.MALE);
+        Person musicAuthor = new Person("Ханц", "Циммер", Gender.MALE);
 
-        Choreographer choreographer = new Choreographer("Мигель", "Танцоров", Gender.MALE);
+        Person choreographer = new Person("Мигель", "Танцоров", Gender.MALE);
 
         ArrayList<Actor> actorsMusicalShow = new ArrayList<>();
         actorsMusicalShow.add(actor1);
@@ -25,22 +25,22 @@ public class Theatre {
         actorsMusicalShow.add(actor3);
         MusicalShow musicalShow = new MusicalShow("Гамлет — точка G", 180, director2, actorsMusicalShow,
                 musicAuthor, "На протяжении 180 минут танцуют и что-то ищут");
-        System.out.println("Список актеров MusicalShow: " + actorsMusicalShow);
+        System.out.println("Список актеров main.java.ru.yandex.practicum.theatre.MusicalShow: " + actorsMusicalShow);
 
         ArrayList<Actor> actorsOpera = new ArrayList<>();
         actorsOpera.add(actor1);
         actorsOpera.add(actor3);
         Opera opera = new Opera("Не все так плохо, как на самом деле, Пафнутий!", 185, director1,
-                actorsOpera, musicAuthor, "Дед Пафнутий пришел на прием к психоаналитику.");
-        System.out.println("Список актеров Opera: " + actorsOpera);
+                actorsOpera, musicAuthor, 30, "Дед Пафнутий пришел на прием к психоаналитику.");
+        System.out.println("Список актеров main.java.ru.yandex.practicum.theatre.Opera: " + actorsOpera);
 
         ArrayList<Actor> actorsBallet = new ArrayList<>();
         actorsBallet.add(actor2);
         actorsBallet.add(actor3);
         Ballet ballet = new Ballet("Прогулка из Пасси в Курбевуа, которую следует совершать гомеопатически",
-                195, director2, actorsBallet, musicAuthor,
+                195, director2, actorsBallet, musicAuthor, choreographer,
                 "Поют, прогуливаясь из точки А в точку Б, гомеопатически.");
-        System.out.println("Список актеров Ballet: " + actorsBallet);
+        System.out.println("Список актеров main.java.ru.yandex.practicum.theatre.Ballet: " + actorsBallet);
 
         int index = ballet.getListOfActors().indexOf(actor3);
         if (index != -1) {
@@ -50,7 +50,7 @@ public class Theatre {
         } else {
             System.out.println("Актёр для замены не найден в списке.");
         }
-        System.out.println("Обновленный список актёров Ballet: " + ballet.getListOfActors());
+        System.out.println("Обновленный список актёров main.java.ru.yandex.practicum.theatre.Ballet: " + ballet.getListOfActors());
 
         index = opera.getListOfActors().indexOf(actor3);
         if (index != -1) {
@@ -60,7 +60,7 @@ public class Theatre {
         } else {
             System.out.println("Актёр для замены не найден в списке.");
         }
-        System.out.println("Обновленный список актёров Opera: " + ballet.getListOfActors());
+        System.out.println("Обновленный список актёров main.java.ru.yandex.practicum.theatre.Opera: " + ballet.getListOfActors());
 
         opera.printLibretto();
         ballet.printLibretto();

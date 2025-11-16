@@ -1,11 +1,13 @@
+package main.java.ru.yandex.practicum.theatre;
+
 import java.util.ArrayList;
 
 public class Show {
 
     private String title;
     private int duration;
-    Director director;
-    public static ArrayList <Actor> listOfActors;
+    private Director director;
+    public static ArrayList<Actor> listOfActors;
 
 
     public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
@@ -46,12 +48,14 @@ public class Show {
     public void setListOfActors(ArrayList<Actor> listOfActors) {
         this.listOfActors = listOfActors;
     }
+
     public void printActors() {
         System.out.println("Список актёров:");
         for (Actor actor : listOfActors) {
             System.out.println(actor.toString());
         }
     }
+
     public void replaceActor(Actor oldActor, Actor newActor) {
         int index = listOfActors.indexOf(oldActor);
         if (index != -1) {
@@ -61,5 +65,4 @@ public class Show {
             System.out.println("Актёр для замены не найден в списке(((");
         }
     }
-
 }
