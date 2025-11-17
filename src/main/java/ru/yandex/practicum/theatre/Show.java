@@ -1,68 +1,69 @@
 package main.java.ru.yandex.practicum.theatre;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Show {
 
-    private String title;
-    private int duration;
-    private Director director;
-    public static ArrayList<Actor> listOfActors;
+    protected String title;
+    protected int duration;
+    protected Director director;
+    protected ArrayList<Actor> listOfActors;
 
 
-    public Show(String title, int duration, Director director, ArrayList<Actor> listOfActors) {
+    public Show(String title, int duration, Director director) {
         this.title = title;
         this.duration = duration;
         this.director = director;
-        this.listOfActors = listOfActors;
+        this.listOfActors = new ArrayList<>();
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public Director getDirector() {
-        return director;
-    }
-
-    public void setDirector(Director director) {
-        this.director = director;
-    }
-
-    public ArrayList<Actor> getListOfActors() {
-        return listOfActors;
-    }
-
-    public void setListOfActors(ArrayList<Actor> listOfActors) {
-        this.listOfActors = listOfActors;
-    }
-
-    public void printActors() {
-        System.out.println("Список актёров:");
+    public void printActorsList(String titleOfShow) {
+        System.out.println("---".repeat(20));
+        System.out.println("Список актеров в спектакле '" + titleOfShow + "':");
         for (Actor actor : listOfActors) {
-            System.out.println(actor.toString());
+            System.out.println(actor);
         }
     }
 
-    public void replaceActor(Actor oldActor, Actor newActor) {
-        int index = listOfActors.indexOf(oldActor);
-        if (index != -1) {
-            listOfActors.set(index, newActor);
-            System.out.println("Актёр успешно заменён!!!");
+    public void addNewActor(Actor newActor, String titleOfShow) {
+        if (listOfActors.contains(newActor)) {
+            System.out.println("Актёр " + newActor + " уже участвует в спектакле '" + titleOfShow + "'!");
         } else {
-            System.out.println("Актёр для замены не найден в списке(((");
+            listOfActors.add(newActor);
+            System.out.println("Актёр " + newActor + " успешно добавлен в спектакль '" + titleOfShow + "'");
         }
+    }
+
+    public void replaceActor(Actor previousActor, Actor newActor, String titleOfShow) {
+        if (listOfActors.contains(previousActor)) {
+            listOfActors.set(listOfActors.indexOf(previousActor), newActor);
+            System.out.println("\nАктёр " + previousActor + " заменен в спектакле " + titleOfShow + " на актёра " + newActor);
+        } else {
+            System.out.println("\nАктёр " + previousActor + " не участвует в спектакле " + titleOfShow + "!");
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Show show = (Show) o;
+        return duration == show.duration && Objects.equals(title, show.title) && Objects.equals(director, show.director) && Objects.equals(listOfActors, show.listOfActors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, duration, director, listOfActors);
+    }
+
+    @Override
+    public String toString() {
+        return "\nShow{" +
+                "title='" + title + '\'' +
+                ", durationInMinutes=" + duration +
+                ", director=" + director +
+                ", listOfActors=" + listOfActors +
+                '}';
     }
 }
+

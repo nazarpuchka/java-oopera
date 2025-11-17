@@ -1,37 +1,23 @@
 package main.java.ru.yandex.practicum.theatre;
 
-import java.util.ArrayList;
-
 public class MusicalShow extends Show {
 
-    private Person musicAuthor;
-    public String librettoText;
+    protected Person musicAuthor;
+    protected String librettoText;
 
-    public MusicalShow(String title, int duration, Director director, ArrayList<Actor> listOfActors,
+    public MusicalShow(String title, int duration, Director director,
                        Person musicAuthor, String librettoText) {
-        super(title, duration, director, listOfActors);
+        super(title, duration, director);
         this.musicAuthor = musicAuthor;
         this.librettoText = librettoText;
-    }
-
-    public Person getMusicAuthor() {
-        return musicAuthor;
-    }
-
-    public void setMusicAuthor(Person musicAuthor) {
-        this.musicAuthor = musicAuthor;
     }
 
     public String getLibrettoText() {
         return librettoText;
     }
 
-    public void setLibrettoText(String librettoText) {
-        this.librettoText = librettoText;
-    }
-
     public void printLibretto() {
         System.out.println("Либретто: " + librettoText);
     }
-
 }
+

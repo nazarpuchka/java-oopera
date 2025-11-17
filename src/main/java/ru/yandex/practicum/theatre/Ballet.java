@@ -1,14 +1,12 @@
 package main.java.ru.yandex.practicum.theatre;
 
-import java.util.ArrayList;
-
 public class Ballet extends MusicalShow {
 
-    private Person choreographer;
+    protected Person choreographer;
 
-    public Ballet(String title, int duration, Director director, ArrayList<Actor> listOfActors,
+    public Ballet(String title, int duration, Director director,
                   Person musicAuthor, Person choreographer, String librettoText) {
-        super(title, duration, director, listOfActors, musicAuthor, librettoText);
+        super(title, duration, director, musicAuthor, librettoText);
         this.choreographer = choreographer;
     }
 
@@ -17,3 +15,4 @@ public class Ballet extends MusicalShow {
         System.out.println("Либретто балета:\n" + getLibrettoText());
     }
 }
+

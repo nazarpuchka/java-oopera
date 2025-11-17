@@ -2,7 +2,7 @@ package main.java.ru.yandex.practicum.theatre;
 
 public class Actor extends Person {
 
-    private int height;
+    protected int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
         super(name, surname, gender);
@@ -38,3 +38,10 @@ public class Actor extends Person {
         return result;
     }
 }
+
+
+
+
+
+
+
