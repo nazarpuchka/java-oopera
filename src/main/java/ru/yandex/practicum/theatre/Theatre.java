@@ -1,4 +1,4 @@
-package main.java.ru.yandex.practicum.theatre; // Здравствуйте! Все поправил, немного поменял структуру кода, спасибо!
+package main.java.ru.yandex.practicum.theatre; // Здравствуйте! Простите за невнимательность(((
 
 public class Theatre {
 
@@ -38,10 +38,10 @@ public class Theatre {
         opera.printActorsList(titleNewOpera);
         ballet.printActorsList(titleNewBallet);
 
-        opera.replaceActor(actor1, actor2, titleNewOpera);
+        opera.replaceActorBySurname(actor2, "Дреблин");
         opera.printActorsList(titleNewOpera);
 
-        ballet.replaceActor(actor1, actor3, titleNewBallet);
+        ballet.replaceActorBySurname(actor1, "Николсонов");
 
         opera.printLibretto();
         ballet.printLibretto();

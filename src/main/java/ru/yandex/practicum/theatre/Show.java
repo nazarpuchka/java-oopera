@@ -35,12 +35,19 @@ public class Show {
         }
     }
 
-    public void replaceActor(Actor previousActor, Actor newActor, String titleOfShow) {
-        if (listOfActors.contains(previousActor)) {
-            listOfActors.set(listOfActors.indexOf(previousActor), newActor);
-            System.out.println("\nАктёр " + previousActor + " заменен в спектакле " + titleOfShow + " на актёра " + newActor);
-        } else {
-            System.out.println("\nАктёр " + previousActor + " не участвует в спектакле " + titleOfShow + "!");
+    public void replaceActorBySurname(Actor newActor, String surnameToReplace) {
+        boolean replaced = false;
+        for (int i = 0; i < listOfActors.size(); i++) {
+            Actor actor = listOfActors.get(i);
+            if (actor.getSurname().equals(surnameToReplace)) {
+                listOfActors.set(i, newActor);
+                System.out.println("Актёр с фамилией " + surnameToReplace + " заменён на " + newActor);
+                replaced = true;
+                break;
+            }
+        }
+        if (!replaced) {
+            System.out.println("Актёр с фамилией " + surnameToReplace + " не найден в списке.");
         }
     }
 
